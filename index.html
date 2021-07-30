@@ -5,47 +5,92 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Soap</title>
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="icon" href="assets/favicon/favicon.png" type="image/png">
 </head>
-<body>
-	<header class="header">
+<body id="body">
+	<header class="header" id="header">
 		<img class="logo" src="assets/img/logo.svg" alt="logo">
-		<img class="hamburger" src="assets/img/hamburger.svg" alt="hamburger">
+		<template v-if="m_menu2">
+			<img class="hamburger" src="assets/img/hamburger.svg" alt="hamburger" @click="m_menu2 = !m_menu2">
+		</template>
+		<template v-else>
+			<img class="hamburger" src="assets/img/close.svg" alt="hamburger" @click="m_menu2 = !m_menu2">
+		</template>
 		<nav>
 			<span class="s1">Мыло</span>
-			<span class="s2">Рубашки</span>
+			<span class="s2" @click="menu = !menu">Рубашки</span>
 			<img class="down" src="assets/img/angle-down.svg" alt="down">
 			<span class="s3">Жир</span>
 		</nav>
+		<template v-if="menu">
+			<div class="bigmenu">
+				<span class="s1m">Длинный рукав</span>
+				<span class="s2m">Короткий рукав</span>
+			</div>
+		</template>
+		<template v-else>
+		</template>
 		<span class="span_tel">8 800 990-34-43</sapn>	
 	</header>
-	<div class="img">
-		<img src="assets/img/item-1-1.png" alt="item-1-1">
-	</div>
-	<img class="arrow_left" src="assets/img/arrow-left.svg" alt="arrow_left">
-	<img class="arrow_right" src="assets/img/arrow-right.svg" alt="arrow_right">
-	<h1 class="title">Мыло FIGHT CLUB</h1>
-	<h2 class="title2">Мыло розовое, душистое. Отличное качество (секретный ингридиент).</h2>
-	<div class="price">13 800 ₽</div>
-	<div class="color">
-		<span>Цвет</span>
-		<img class="color_one" src="assets/img/color-2.svg" alt="color_one">
-		<img class="color_two" src="assets/img/color-1.svg" alt="color_two">
-	</div>
-	<div class="add_cart">
-		<span>Добавить в корзину</span>
-	</div>
-	<div class="about">
-		<div class="about_nav">
-			<span class="description">Описание</span>
-			<span class="specifications">Характеристики</span>
+	<div class="m_menu" :class="{ hidden: m_menu2 }">
+		<div class="m_hr"></div>
+		<div class="menu_m">
+			<span class="m1">Мыло</span>
+			<span class="m2">Рубашки</span>
+			<span class="m3">Жир</span>
 		</div>
-		<div class="about_text">
-			Масло Макадимии смягчает, увлажняет, обладает антиоксидантными, антибактериальными , восстанавливающими свойствами , ускоряет заживление, снимает болевые ощущения в суставах. Натуральный ментол охладит и снимет усталость после долгой тренировки. Подойдет для всех типов кожи.
-			<div class="about_hidden"></div>
-			<div class="about_more">Показать&nbsp;больше&nbsp;↓</div>
-		</div>
+		<span class="m4">8 800 990-34-43</span>
 	</div>
-	<footer>
+	<main id="main" :class="{ hidden: !m_menu2 }">
+		<div class="img">
+			<template v-if="isOutline2">
+				<img v-if="show" src="assets/img/item-1-1.png" alt="item-1-1">
+				<img v-else src="assets/img/item-1-2.png" alt="item-1-2">
+			</template>
+			<template v-else>
+				<img v-if="show" src="assets/img/item-2-1.png" alt="item-2-1">
+				<img v-else src="assets/img/item-2-2.png" alt="item-2-2">
+			</template>
+		</div>
+		<img class="arrow_left" src="assets/img/arrow-left.svg" alt="arrow_left" @click="show = !show">
+		<img class="arrow_right" src="assets/img/arrow-right.svg" alt="arrow_right" @click="show = !show">
+		<h1 class="title">Мыло FIGHT CLUB</h1>
+		<h2 class="title2">Мыло розовое, душистое. Отличное качество (секретный ингридиент).</h2>
+		<div class="price">13 800 ₽</div>
+		<div class="color" id="colorid">
+			<span>Цвет</span>
+			<img class="color_one" :class="{ outline: isOutline1 }" @click="newcolor1" src="assets/img/color-1.svg" alt="color_one">
+			<img class="color_two" :class="{ outline: isOutline2 }" @click="newcolor2" src="assets/img/color-2.svg" alt="color_two">
+		</div>
+		<div class="add_cart" :class="{ add_cart_no: isOutline2 }">
+			<span>Добавить в корзину</span>
+		</div>
+		<div class="about">
+			<div class="about_nav" :class="{ about_add: des }" :style="`--my-left: ${ myleft }px; --my-width: ${ mywidth }px; --my-leftm: ${ myleftm }px`">
+				<span class="description" @click="description1" :class="{ about_add: des }">Описание</span>
+				<span class="specifications" @click="specifications1" :class="{ about_add: spec }">Характеристики</span>
+			</div>
+			<div class="about_text" :class="{ hidden: des }">
+				Масло Макадимии смягчает, увлажняет, обладает антиоксидантными, антибактериальными , восстанавливающими свойствами , ускоряет заживление, снимает болевые ощущения в суставах. Натуральный ментол охладит и снимет усталость после долгой тренировки. Подойдет для всех типов кожи.
+				<div class="about_hidden" :class="{ hidden: hidden }" @click="hidden1"></div>
+				<div class="about_more" :class="{ hidden: hidden }" @click="hidden1">Показать&nbsp;больше&nbsp;↓</div>
+			</div>
+			<div :class="{ hidden: spec }">
+				<div class="about_specifications">
+					<p>Артикул</p>
+					<p>Материал</p>
+					<p>Страна</p>
+				</div>
+				<div class="about_description">
+					<p>H7S3N-9301</p>
+					<p>текстиль, резина</p>
+					<p>Индонезия</p>
+				</div>
+			</div>
+		</div>
+		<div class="f_hr"></div>
+	</main>
+	<footer :class="{ hidden: !m_menu2 }">
 		<span class="company">&copy; ООО «Соуп»</span>
 		<nav>
 			<span class="s1">Мыло</span>
@@ -60,4 +105,6 @@
 		</div>
 	</footer>
 </body>
+<script src="https://unpkg.com/vue@next"></script>
+<script type="text/javascript" src="vue.js"></script>
 </html>

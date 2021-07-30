@@ -37,7 +37,7 @@ body{
   }
   @media screen and (max-width: 768px) {
     width: 320px;
-    height: 1449px;
+    height: 400px;
   }
 }
 .header{
@@ -107,6 +107,7 @@ body{
       font-size: 16px;
       line-height: 18px;
       color: #000000;
+      cursor: pointer;
     }
     .s2{
       position: absolute;
@@ -120,6 +121,7 @@ body{
       font-size: 16px;
       line-height: 18px;
       color: #000000;
+      cursor: pointer;
     }
     .down{
       position: absolute;
@@ -142,7 +144,42 @@ body{
         font-size: 16px;
         line-height: 18px;
         color: #000000;
+        cursor: pointer;
     }
+  }
+  .bigmenu{
+    position: absolute;
+    width: 182px;
+    height: 90px;
+    left: 45.5%;
+    top: 35px;
+    z-index: 1;
+      .s1m{
+        position: absolute;
+        height: 16px;
+        left: 13.19%;
+        right: 26.37%;
+        top: calc(50% - 16px/2 - 17px);
+        font-family: PT Mono;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        cursor: pointer;
+      }
+      .s2m{
+        position: absolute;
+        height: 16px;
+        left: 13.19%;
+        right: 21.98%;
+        top: calc(50% - 16px/2 + 14px);
+        font-family: PT Mono;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        cursor: pointer;
+      }
   }
   .hamburger{
     position: absolute;
@@ -154,6 +191,82 @@ body{
     @media screen and (max-width: 768px) {
       display: block;
     }
+  }
+}
+.m_menu{
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top:75px;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 1;
+    .m_hr{
+      position: absolute;
+      width: 272px;
+      height: 1px;
+      left: 24px;
+      top: 20px;
+      background: #D8D8D8;
+    }
+    .menu_m{
+      position: absolute;
+      width: 92px;
+      height: 142px;
+      left: 122px;
+      top: 213px;
+      .m1{
+        position: absolute;
+        height: 26px;
+        left: 17.39%;
+        right: 34.78%;
+        top: calc(50% - 26px/2 - 58px);
+        font-family: PT Mono;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 26px;
+      }
+      .m2{
+        position: absolute;
+        height: 26px;
+        left: 0%;
+        right: 17.39%;
+        top: calc(50% - 26px/2);
+        font-family: PT Mono;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 26px;
+      }
+      .m3{
+        position: absolute;
+        height: 26px;
+        left: 23.91%;
+        right: 40.22%;
+        top: calc(50% - 26px/2 + 58px);
+        font-family: PT Mono;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 26px;
+      }
+    }
+  }
+  .m4{
+    position: absolute;
+    width: 180px;
+    height: 32px;
+    left: 70px;
+    top: 504px;
+    font-family: PT Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: right;
   }
 }
 .img{
@@ -197,6 +310,7 @@ body{
   height: 16px;
   left: 419px;
   top: 704px;
+  cursor: pointer;
   @media screen and (max-width: 1440px) {
     position: absolute;
     left: 161px;
@@ -214,6 +328,7 @@ body{
   height: 16px;
   left: 499px;
   top: 704px;
+  cursor: pointer;
   @media screen and (max-width: 1440px) {
     position: absolute;
     left: 241px;
@@ -318,14 +433,16 @@ body{
       right: 85.28%;
     }
   }
+  .outline{
+    outline: 7px solid #000000;
+    outline-offset: -7px;
+  }
   .color_one{
     position: absolute;
     left: 52.94%;
     right: 33.61%;
     top: 0%;
     bottom: 0%;
-    outline: 7px solid #000000;
-    outline-offset: -7px;
     @media screen and (max-width: 1440px) {
       left: 47.42%;
       right: 37.56%;
@@ -358,6 +475,11 @@ body{
   left: 834px;
   top: 390px;
   background-color: #FF7F96;
+  cursor: pointer;
+  &:hover{
+    background-color: #FF3357;
+    transition: 0.1s;
+  }
   @media screen and (max-width: 1440px) {
     width: 342px;
     left: 396px;
@@ -380,6 +502,12 @@ body{
     color: #FFFFFF;
   }
 }
+.add_cart_no{
+  background-color: #FFEBEF;
+  &:hover{
+    background-color: #FFEBEF;
+  }
+}
 .about{
   position: absolute;
   width: 375px;
@@ -391,7 +519,7 @@ body{
     left: 396px;
   }
   @media screen and (max-width: 768px) {
-    width: 342px;
+    width: 272px;
     left: 24px;
     top: 889px;
   }
@@ -419,6 +547,7 @@ body{
       font-weight: normal;
       font-size: 14px;
       line-height: 24px;
+      cursor: pointer;
       @media screen and (max-width: 1440px) {
         right: 80.12%;
       }
@@ -437,9 +566,7 @@ body{
       font-weight: normal;
       font-size: 14px;
       line-height: 24px;
-      color: #000000;
-      mix-blend-mode: normal;
-      opacity: 0.5;
+      cursor: pointer;
       @media screen and (max-width: 1440px) {
         left: 29.24%;
         right: 36.26%;
@@ -449,14 +576,22 @@ body{
         right: 36.26%;
       }
     }
+    .about_add{
+      color: #000000;
+      mix-blend-mode: normal;
+      opacity: 0.5;
+    }
   }
   .about_nav:before {
     content: '';
     position: absolute;
     top: 100%;
-    left: 0;
+    left: var(--my-left);
     border-bottom: 1px solid #000000;
-    width: 19%;
+    width: var(--my-width);
+    @media screen and (max-width: 768px) {
+      left: var(--my-leftm) !important;
+    }
   }
   .about_text{
     position: absolute;
@@ -469,14 +604,7 @@ body{
     font-weight: normal;
     font-size: 16px;
     line-height: 30px;
-    @media screen and (max-width: 1440px) {
-      right: 0%;
-      overflow: hidden;
-    }
-    @media screen and (max-width: 768px) {
-      right: 20.47%;
-      overflow: hidden;
-    }
+    overflow: hidden;
     .about_hidden{
       position: absolute;
       left: 0%;
@@ -503,6 +631,53 @@ body{
         right: 64.04%;
       }
     }
+  }
+  .about_specifications{
+    position: absolute;
+    height: 96px;
+    left: 0%;
+    right: 84.24%;
+    top: 50px;
+    font-family: PT Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    mix-blend-mode: normal;
+    opacity: 0.5;
+  }
+  .about_description{
+    position: absolute;
+    height: 96px;
+    left: 34.51%;
+    right: 33.42%;
+    top: 50px;
+    font-family: PT Sans Caption;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+.hidden{
+  display: none;
+}
+.f_hr{
+  position: absolute;
+  width: 1200px;
+  height: 1px;
+  left: 120px;
+  top: 808px;
+  background: #D8D8D8;
+  @media screen and (max-width: 1440px) {
+    width: 720px;
+    left: 24px;
+    top: 801px;
+  }
+  @media screen and (max-width: 768px) {
+    width: 272px;
+    left: 24px;
+    top: 1188px;
   }
 }
 footer{
@@ -544,7 +719,7 @@ footer{
       top: calc(50% - 30px/2 - 68.5px);
     }
   }
-    nav{
+  nav{
     position: absolute;
     left: 15.68%;
     right: 67.72%;
